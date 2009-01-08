@@ -1,0 +1,198 @@
+#ECH File construct, order is important, as the application sequentially reads the file
+#Version 14 - Standard Schema
+echi_records:
+    - name: callid
+      type: int
+      length: 4
+    - name: acwtime
+      type: int
+      length: 4
+    - name: onholdtime
+      type: int
+      length: 4
+    - name: consulttime
+      type: int
+      length: 4
+    - name: disptime
+      type: int
+      length: 4
+    - name: duration
+      type: int
+      length: 4
+    - name: segstart
+      type: datetime
+      length: 4
+    - name: segstop
+      type: datetime
+      length: 4
+    - name: talktime
+      type: int
+      length: 4
+    - name: netintime
+      type: int
+      length: 4
+    - name: origholdtime
+      type: int
+      length: 4
+    - name: dispivector
+      type: int
+      length: 2
+    - name: dispsplit
+      type: int
+      length: 2
+    - name: firstivector
+      type: int
+      length: 2
+    - name: split1
+      type: int
+      length: 2
+    - name: split2
+      type: int
+      length: 2
+    - name: split3
+      type: int
+      length: 2
+    - name: trunkgroup
+      type: int
+      length: 2
+    - name: tklocid
+      type: int
+      length: 2
+    - name: origlocid
+      type: int
+      length: 2
+    - name: answerlocid
+      type: int
+      length: 2
+    - name: obslocid
+      type: int
+      length: 2
+    - name: assist
+      type: bool
+      length: 1
+    - name: audiodifficulty
+      type: bool
+      length: 1
+    - name: conference
+      type: bool
+      length: 1
+    - name: daqueued
+      type: bool
+      length: 1
+    - name: holdabn
+      type: bool
+      length: 1
+    - name: malicious
+      type: bool
+      length: 1
+    - name: observingcall
+      type: bool
+      length: 1
+    - name: transferred
+      type: bool
+      length: 1
+    - name: agentreleased
+      type: boolint
+      length: 1
+    - name: acdnum
+      type: int
+      length: 1
+    - name: calldisp
+      type: int
+      length: 1
+    - name: disppriority
+      type: int
+      length: 1
+    - name: holds
+      type: int
+      length: 1
+    - name: segment
+      type: int
+      length: 1
+    - name: ansreason
+      type: int
+      length: 1
+    - name: origreason
+      type: int
+      length: 1
+    - name: dispsklevel
+      type: int
+      length: 1
+    - name: events0
+      type: int
+      length: 1
+    - name: events1
+      type: int
+      length: 1
+    - name: events2
+      type: int
+      length: 1
+    - name: events3
+      type: int
+      length: 1
+    - name: events4
+      type: int
+      length: 1
+    - name: events5
+      type: int
+      length: 1
+    - name: events6
+      type: int
+      length: 1
+    - name: events7
+      type: int
+      length: 1
+    - name: events8
+      type: int
+      length: 1
+    - name: ucid
+      type: str
+      length: 21
+    - name: dispvdn
+      type: str
+      length: 8
+    - name: eqloc
+      type: str
+      length: 10
+    - name: firstvdn 
+      type: str
+      length: 8
+    - name: origlogid
+      type: str
+      length: 10
+    - name: anslogid
+      type: str
+      length: 10
+    - name: lastobserver
+      type: str
+      length: 10
+    - name: dialednumber
+      type: str
+      length: 25
+    - name: callingparty
+      type: str
+      length: 13
+    - name: collectdigits
+      type: str
+      length: 17
+    - name: cwcdigits
+      type: str
+      length: 17
+    - name: callingII
+      type: str
+      length: 3
+    - name: cwcs0
+      type: str
+      length: 17
+    - name: cwcs1
+      type: str
+      length: 17
+    - name: cwcs2
+      type: str
+      length: 17
+    - name: cwcs3
+      type: str
+      length: 17
+    - name: cwcs4
+      type: str
+      length: 17
