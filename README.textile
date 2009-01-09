@@ -30,7 +30,7 @@ h2. Example
 	format = 'EXTENDED'
 	#In some cases the extra_byte is needed
 	extra_byte = true
-	data = echi_handler.process_file(filehandle, file_type_, format, extra_byte_)
+	data = echi_handler.process_file(filehandle, file_type, format, extra_byte)
 
 	#Use this to process a binary file
 	file_type = 'ASCII'
@@ -38,6 +38,11 @@ h2. Example
 	extra_byte = true
 	#Use this to process an ASCII file
 	data = echi_handler.process_file(filehandle, file_type, format, extra_byte)
+	
+	#If you need to strip in characters from the asaiuui field
+	#@data Is the Array of Hashes converted above
+	#@array_of_decimal_values Is an array of decimal ascii values to be stripped
+	data = echi_handler.strip_asaiuui(data, array_of_decimal_values)
 	</code>
 	</pre>	
 

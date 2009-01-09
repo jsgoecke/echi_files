@@ -165,4 +165,20 @@ class EchiFiles
     
   end
   
+  #Method used to strip special characters
+  #@data An Array of Hashes to be processed
+  #@characters An Array of charcters to be stripped
+  def strip_asaiuui(data, characters)
+    
+    stripped_data = Array.new
+    data.each do |row|
+      characters.each do |char|
+        row["asaiuui"].gsub!(char.chr,"")
+      end
+      stripped_data << row
+    end
+    
+    return stripped_data
+  end
+  
 end
