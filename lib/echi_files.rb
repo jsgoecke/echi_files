@@ -27,6 +27,7 @@ class EchiFiles
       case length
       when 4
         value = filehandle.read(length).unpack("l").first.to_i
+        puts value.inspect
         value = Time.at(value)
       end
     #Process strings
