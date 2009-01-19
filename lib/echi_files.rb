@@ -27,7 +27,6 @@ class EchiFiles
       case length
       when 4
         value = filehandle.read(length).unpack("l").first.to_i
-        puts value.inspect
         value = Time.at(value)
       end
     #Process strings
@@ -168,13 +167,18 @@ class EchiFiles
   
   #Method used to strip special characters
   #@data An Array of Hashes to be processed
-  #@characters An Array of charcters to be stripped
-  def strip_asaiuui(data, characters)
-    
+  #@fields An array of fields to strip characters from
+  #@characters An Array of characters to be stripped
+  def strip_special_characters(data, fields, characters)
+
     stripped_data = Array.new
     data.each do |row|
-      characters.each do |char|
-        row["asaiuui"].gsub!(char.chr,"")
+      fields.each do |field|
+        if field == row[0]
+          characters.each do |character|
+            row[1].gsub!(character.chr, "")
+          end
+        end
       end
       stripped_data << row
     end
