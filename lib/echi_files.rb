@@ -1,14 +1,24 @@
+# This library is used to process Avaya CMS ECHI Files
+#
+# Author::    Jason Goecke  (mailto:jason@goecke.net)
+# Copyright:: Copyright (c) 2009 Jason Goecke
+# License::   Distributes under the MIT License
+#
+# This class contains the methods for processing both
+# binary and ascii files from the Avaya CMS
+
 require 'yaml'
 require 'fastercsv'
 
 class EchiFiles
   
+  #Load the associated schema definitions of the Avaya ECHI files
   def initialize
     @extended = YAML::load_file(File.expand_path(File.dirname(__FILE__) + "/extended-definition.yml"))
     @standard = YAML::load_file(File.expand_path(File.dirname(__FILE__) + "/standard-definition.yml"))
   end
   
-  #Method for parsing the various datatypes from the ECH file
+  #Method for parsing the various datatypes from the binary ECHI file
   def dump_binary(filehandle, type, length)
     case type
     when 'int'
@@ -48,7 +58,7 @@ class EchiFiles
     return value
   end
 
-  #Mehtod that performs the conversions
+  #Mehtod that performs the conversions of files
   def convert_binary_file(filehandle, schema, extra_byte)
     
     #Read header information first
