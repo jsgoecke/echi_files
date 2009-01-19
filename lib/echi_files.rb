@@ -170,7 +170,6 @@ class EchiFiles
   #@fields An array of fields to strip characters from
   #@characters An Array of characters to be stripped
   def strip_special_characters(data, fields, characters)
-
     stripped_data = Array.new
     data.each do |row|
       fields.each do |field|
@@ -182,7 +181,6 @@ class EchiFiles
       end
       stripped_data << row
     end
-    
     return stripped_data
   end
   
