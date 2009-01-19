@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "echi_files"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
   s.date = "2009-01-19"
   s.summary = "Ruby Library for Processing Avaya ECHI Files"
   s.description = "Ruby Library for processing External Call History (ECHI) files from the Avaya CMS"
@@ -12,7 +12,14 @@ Gem::Specification.new do |s|
  
   s.files = ["lib/echi_files.rb", 
              "lib/extended-definition.yml",
-             "lib/standard-definition.yml", 
+             "lib/standard-definition.yml",
+             "test/example_ascii_file", 
+             "test/example_binary_file",
+             "test/proper_ascii.yml",
+             "test/proper_stripped.yml",
+             "test/proper_unstripped.yml",
+             "test/test_echi_files.rb",
+             "History.txt",
              "LICENSE", 
              "README.textile", 
              "echi_files.gemspec"]

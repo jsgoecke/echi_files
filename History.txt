@@ -1,0 +1,12 @@
+== 0.0.1 2009-01-10
+
+* 1 major enhancement(s):
+  * Initial release
+  * Alpha phase
+
+== 0.0.2 2009-01-19
+
+* Minor enhancement(s):
+  * Added full tests
+  * Refactored and changed the name of the strip_special_characters_method
+

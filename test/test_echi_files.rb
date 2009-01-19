@@ -31,7 +31,6 @@ class EchiFiles_Test < Test::Unit::TestCase
     file_type = 'ASCII'
     format = 'EXTENDED'
     @ascii_data = echi_handler.process_file(ascii_file, file_type, format, extra_byte)
-    
   end
   
   def teardown
