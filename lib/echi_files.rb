@@ -18,6 +18,17 @@ class EchiFiles
     @standard = YAML::load_file(File.expand_path(File.dirname(__FILE__) + "/standard-definition.yml"))
   end
   
+  #Method to determine if the file is binary or ASCII encoded
+  def detect_filetype(filehandle)
+    if filehandle.read(1).is_binary_data?
+      type = 'BINARY'
+    else
+      type = 'ASCII'
+    end
+    filehandle.rewind
+    return type
+  end
+  
   #Method for parsing the various datatypes from the binary ECHI file
   def dump_binary(filehandle, type, length)
     case type
@@ -155,7 +166,7 @@ class EchiFiles
   #@format Whether this is the ECHI EXTENDED or STANDARD file format
   #@extra_byte Set to true if you want to read an extra byte at the end of each record
   #This method will return an array of hashes of the resulting data processed
-  def process_file(filehandle, type, format, extra_byte)
+  def process_file(filehandle, format, extra_byte)
     
     #Set the appropriate schema format for standard or extended from the Avaya CMS
     case format
@@ -166,7 +177,7 @@ class EchiFiles
     end
     
     #Process based on the filetype passed
-    case type
+    case detect_filetype(filehandle)
     when 'ASCII'
       return convert_ascii_file(filehandle, schema)
     when 'BINARY'

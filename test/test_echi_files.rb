@@ -8,6 +8,7 @@ class EchiFiles_Test < Test::Unit::TestCase
     #Provide a filename to process as an argument on the commandline
     binary_file = File.open(File.expand_path("test/example_binary_file"))
     ascii_file = File.open(File.expand_path("test/example_ascii_file"))
+    
     @proper_unstripped = YAML::load(File.open(File.expand_path("test/proper_unstripped.yml")))
     @proper_stripped = YAML::load(File.open(File.expand_path("test/proper_stripped.yml")))
     @proper_ascii = YAML::load(File.open(File.expand_path("test/proper_ascii.yml")))
@@ -15,12 +16,17 @@ class EchiFiles_Test < Test::Unit::TestCase
     #Create a new EchiFiles object
     echi_handler = EchiFiles.new
 
+    #Set filetype details
+    @filetype_binary = echi_handler.detect_filetype(binary_file)
+    binary_file.rewind
+    @filetype_ascii = echi_handler.detect_filetype(ascii_file)
+    ascii_file.rewind
+    
     #Use this to process a binary file
-    file_type = 'BINARY'
     format = 'EXTENDED'
     #In some cases the extra_byte is needed
     extra_byte = true
-    @binary_data = echi_handler.process_file(binary_file, file_type, format, extra_byte)
+    @binary_data = echi_handler.process_file(binary_file, format, extra_byte)
     #If you need to strip in characters from the asaiuui field
     @stripped_data = Array.new
     @binary_data.each do |data|
@@ -28,12 +34,21 @@ class EchiFiles_Test < Test::Unit::TestCase
     end
     
     #Use this to process an ASCII file
-    file_type = 'ASCII'
     format = 'EXTENDED'
-    @ascii_data = echi_handler.process_file(ascii_file, file_type, format, extra_byte)
+    @ascii_data = echi_handler.process_file(ascii_file, format, extra_byte)
   end
   
   def teardown
+  end
+  
+  #Test method that determine filetype
+  def test_filetype_ascii
+    assert_equal("ASCII", @filetype_ascii)
+  end
+  
+  #Test method that determine filetype
+  def test_filetype_binary
+    assert_equal("BINARY", @filetype_binary)
   end
   
   #Test that processing a binary file works
@@ -50,4 +65,5 @@ class EchiFiles_Test < Test::Unit::TestCase
   def test_ascii_file
     assert_equal(@ascii_data, @proper_ascii)
   end
+  
 end
