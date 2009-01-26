@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = "echi_files"
-  s.version = "0.2.0"
-  s.date = "2009-01-19"
+  s.version = "0.2.1"
+  s.date = "2009-01-26"
   s.summary = "Ruby Library for Processing Avaya ECHI Files"
   s.description = "Ruby Library for processing External Call History (ECHI) files from the Avaya CMS"
   s.authors = ["Jason Goecke"]
