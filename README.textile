@@ -12,8 +12,6 @@ h2. Features
 * Tested with both Ruby 1.8.6 and JRuby 1.1.5
 
 h2. Example
-    <pre>
-	<code>
 	require 'echi_files'
 	
 	#Provide a filename to process as an argument on the commandline
@@ -42,9 +40,7 @@ h2. Example
 	#If you need to strip in characters from the asaiuui field
 	#@data Is the Array of Hashes converted above
 	#@array_of_decimal_values Is an array of decimal ascii values to be stripped
-	data = echi_handler.strip_asaiuui(data, array_of_decimal_values)
-	</code>
-	</pre>	
+	data = echi_handler.strip_asaiuui(data, array_of_decimal_values)	
 
 h2. Dependencies
 

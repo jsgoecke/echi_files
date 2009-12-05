@@ -6,7 +6,7 @@
 #
 # This class contains the methods for processing both
 # binary and ascii files from the Avaya CMS
-
+require 'rubygems'
 require 'yaml'
 require 'fastercsv'
 
